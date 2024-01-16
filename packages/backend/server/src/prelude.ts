@@ -5,12 +5,13 @@ import { join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 import { config } from 'dotenv';
-import { omit } from 'lodash-es';
 
 import {
   applyEnvToConfig,
   getDefaultAFFiNEConfig,
 } from './fundamentals/config';
+import { getAFFiNEConfigModifier } from './fundamentals/config-new';
+import { enablePlugin } from './plugins';
 
 const configDir = join(fileURLToPath(import.meta.url), '../config');
 async function loadRemote(remoteDir: string, file: string) {
@@ -38,6 +39,8 @@ async function load() {
 
   // 2. generate AFFiNE default config and assign to `globalThis.AFFiNE`
   globalThis.AFFiNE = getDefaultAFFiNEConfig();
+  globalThis.NEW_AFFiNE = getAFFiNEConfigModifier();
+  globalThis.NEW_AFFiNE.use = enablePlugin;
 
   // TODO(@forehalo):
   //   Modules may contribute to ENV_MAP, figure out a good way to involve them instead of hardcoding in `./config/affine.env`
@@ -56,12 +59,12 @@ async function load() {
   // 6. apply `process.env` map overriding to `globalThis.AFFiNE`
   applyEnvToConfig(globalThis.AFFiNE);
 
-  if (AFFiNE.node.dev) {
-    console.log(
-      'AFFiNE Config:',
-      JSON.stringify(omit(globalThis.AFFiNE, 'ENV_MAP'), null, 2)
-    );
-  }
+  // if (AFFiNE.node.dev) {
+  //   console.log(
+  //     'AFFiNE Config:',
+  //     JSON.stringify(omit(globalThis.AFFiNE, 'ENV_MAP'), null, 2)
+  //   );
+  // }
 }
 
 await load();

@@ -2,7 +2,7 @@ import { DynamicModule, FactoryProvider } from '@nestjs/common';
 import { merge } from 'lodash-es';
 
 import { ApplyType } from '../utils/types';
-import { AFFiNEConfig } from './def';
+import { NewAFFiNEConfig } from './def';
 
 /**
  * @example
@@ -16,26 +16,26 @@ import { AFFiNEConfig } from './def';
  *   }
  * }
  */
-export class Config extends ApplyType<AFFiNEConfig>() {}
+export class NewConfig extends ApplyType<NewAFFiNEConfig>() {}
 
 function createConfigProvider(
-  override?: DeepPartial<Config>
-): FactoryProvider<Config> {
+  override?: DeepPartial<NewConfig>
+): FactoryProvider<NewConfig> {
   return {
-    provide: Config,
+    provide: NewConfig,
     useFactory: () => {
-      return Object.freeze(merge({}, globalThis.AFFiNE, override));
+      return Object.freeze(merge({}, globalThis.NEW_AFFiNE, override));
     },
   };
 }
 
-export class ConfigModule {
-  static forRoot = (override?: DeepPartial<Config>): DynamicModule => {
+export class NewConfigModule {
+  static forRoot = (override?: DeepPartial<NewConfig>): DynamicModule => {
     const provider = createConfigProvider(override);
 
     return {
       global: true,
-      module: ConfigModule,
+      module: NewConfigModule,
       providers: [provider],
       exports: [provider],
     };

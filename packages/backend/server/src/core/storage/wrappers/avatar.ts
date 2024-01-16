@@ -17,8 +17,8 @@ export class AvatarStorage {
     private readonly config: Config,
     private readonly storageFactory: StorageProviderFactory
   ) {
-    this.provider = this.storageFactory.create('avatar');
     this.storageConfig = this.config.storage.storages.avatar;
+    this.provider = this.storageFactory.create(this.storageConfig);
   }
 
   async put(key: string, blob: BlobInputType, metadata?: PutObjectMetadata) {

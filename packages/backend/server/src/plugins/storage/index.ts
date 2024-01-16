@@ -1,3 +1,5 @@
+import './config';
+
 import { registerStorageProvider } from '../../fundamentals/storage';
 import { Plugin } from '../registry';
 import { R2StorageProvider } from './providers/r2';

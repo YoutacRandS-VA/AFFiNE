@@ -20,7 +20,9 @@ export class CopilotStorage {
     private readonly storageFactory: StorageProviderFactory,
     private readonly quota: QuotaManagementService
   ) {
-    this.provider = this.storageFactory.create('copilot');
+    this.provider = this.storageFactory.create(
+      this.config.storage.storages.copilot
+    );
   }
 
   async put(

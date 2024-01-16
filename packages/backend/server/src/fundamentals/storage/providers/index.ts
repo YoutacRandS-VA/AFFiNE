@@ -1,7 +1,8 @@
 import { Injectable } from '@nestjs/common';
 
 import { Config } from '../../config';
-import type { StorageProviderType, Storages } from '../../config/storage';
+import type { StorageProviderType } from '../../config/storage';
+import { StorageConfig } from '../config';
 import type { StorageProvider } from './provider';
 
 const availableProviders = new Map<
@@ -20,17 +21,14 @@ export function registerStorageProvider(
 export class StorageProviderFactory {
   constructor(private readonly config: Config) {}
 
-  create(storage: Storages): StorageProvider {
-    const storageConfig = this.config.storage.storages[storage];
-    const providerFactory = availableProviders.get(storageConfig.provider);
+  create(storage: StorageConfig): StorageProvider {
+    const providerFactory = availableProviders.get(storage.provider);
 
     if (!providerFactory) {
-      throw new Error(
-        `Unknown storage provider type: ${storageConfig.provider}`
-      );
+      throw new Error(`Unknown storage provider type: ${storage.provider}`);
     }
 
-    return providerFactory(this.config, storageConfig.bucket);
+    return providerFactory(this.config, storage.bucket);
   }
 }
 

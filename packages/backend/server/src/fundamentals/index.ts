@@ -12,6 +12,7 @@ export {
   DeploymentType,
   getDefaultAFFiNEStorageConfig,
 } from './config';
+export { NewConfig } from './config-new';
 export * from './error';
 export { EventEmitter, type EventPayload, OnEvent } from './event';
 export type { GraphqlContext } from './graphql';

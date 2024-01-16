@@ -1,3 +1,5 @@
+import './config';
+
 import { Global, Module } from '@nestjs/common';
 
 import { registerStorageProvider, StorageProviderFactory } from './providers';
@@ -18,6 +20,7 @@ registerStorageProvider('fs', (config, bucket) => {
 })
 export class StorageProviderModule {}
 
+export type { StorageProviderType } from './config';
 export * from './native';
 export type {
   BlobInputType,

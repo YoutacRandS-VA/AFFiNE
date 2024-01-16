@@ -1,3 +1,5 @@
+import './config';
+
 import { Global, Provider, Type } from '@nestjs/common';
 import type { RedisOptions } from 'ioredis';
 import { Redis } from 'ioredis';

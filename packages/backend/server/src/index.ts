@@ -14,3 +14,4 @@ const logger = new Logger('App');
 logger.log(`AFFiNE Server is running in [${AFFiNE.type}] mode`);
 logger.log(`Listening on http://${listeningHost}:${AFFiNE.port}`);
 logger.log(`And the public server should be recognized as ${AFFiNE.baseUrl}`);
+console.log(NEW_AFFiNE);

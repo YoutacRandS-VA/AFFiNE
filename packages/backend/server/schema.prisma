@@ -500,3 +500,13 @@ model DataMigration {
 
   @@map("_data_migrations")
 }
+
+model ApplicationSetting {
+  scope       String  @db.VarChar()
+  name        String  @db.VarChar()
+  value       Json    @db.Json
+  description String? @db.Text
+
+  @@id([scope, name])
+  @@map("application_settings")
+}

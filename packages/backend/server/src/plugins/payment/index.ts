@@ -1,3 +1,5 @@
+import './config';
+
 import { ServerFeature } from '../../core/config';
 import { FeatureModule } from '../../core/features';
 import { Plugin } from '../registry';

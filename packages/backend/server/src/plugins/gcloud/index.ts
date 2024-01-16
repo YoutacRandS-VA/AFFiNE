@@ -1,3 +1,5 @@
+import './config';
+
 import { Global } from '@nestjs/common';
 
 import { Plugin } from '../registry';
@@ -9,3 +11,4 @@ import { GCloudMetrics } from './metrics';
   imports: [GCloudMetrics],
 })
 export class GCloudModule {}
+export type { GCloudConfig } from './config';
