@@ -755,7 +755,7 @@ __metadata:
     tiktoken: "npm:^1.0.13"
     ts-node: "npm:^10.9.2"
     typescript: "npm:^5.4.5"
-    ws: "npm:^8.16.0"
+    ws: "npm:^8.17.1"
     yjs: "npm:^13.6.14"
     zod: "npm:^3.22.4"
   bin:
@@ -36980,6 +36980,21 @@ __metadata:
   dependencies:
     async-limiter: "npm:~1.0.0"
   checksum: 10/bb791ac02ad7e59fd4208cc6dd3a5bf7a67dff4611a128ed33365996f9fc24fa0d699043559f1798b4bc8045639fd21a1fd3ceca81de560124444abd8e321afc
+  languageName: node
+  linkType: hard
+
+"ws@npm:^8.17.1":
+  version: 8.17.1
+  resolution: "ws@npm:8.17.1"
+  peerDependencies:
+    bufferutil: ^4.0.1
+    utf-8-validate: ">=5.0.2"
+  peerDependenciesMeta:
+    bufferutil:
+      optional: true
+    utf-8-validate:
+      optional: true
+  checksum: 10/4264ae92c0b3e59c7e309001e93079b26937aab181835fb7af79f906b22cd33b6196d96556dafb4e985742dd401e99139572242e9847661fdbc96556b9e6902d
   languageName: node
   linkType: hard
 
