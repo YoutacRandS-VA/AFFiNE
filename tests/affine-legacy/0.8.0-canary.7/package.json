@@ -10,7 +10,7 @@
     "@affine-test/fixtures": "workspace:*",
     "@affine-test/kit": "workspace:*",
     "@playwright/test": "=1.44.1",
-    "express": "^4.19.2",
+    "express": "^4.20.0",
     "http-proxy-middleware": "^3.0.0",
     "serve": "^14.2.1"
   },

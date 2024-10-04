@@ -13,7 +13,7 @@
     "@affine/electron-api": "workspace:*",
     "@node-rs/argon2": "^1.8.0",
     "@playwright/test": "=1.44.1",
-    "express": "^4.19.2",
+    "express": "^4.20.0",
     "http-proxy-middleware": "^3.0.0"
   },
   "peerDependencies": {
